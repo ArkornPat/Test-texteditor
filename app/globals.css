@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 :root {
   --background: #ffffff;
@@ -24,3 +25,66 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.text-style-1 {
+  color: #ff1493;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 1.5em;
+}
+
+ol {
+  list-style-type: decimal;
+  padding-left: 1.5em;
+}
+
+a {
+  color: #1e90ff;
+  text-decoration: underline;
+}
+
+
+.site-img-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-down {
+  animation: slide-down 0.3s ease-out;
+}
+
+
+.content-paragraph {
+  margin: 0;
+  padding: 0;
+}
+
+.content-paragraph + .content-paragraph {
+  margin-top: 1em;
+}
+
+.single-break {
+  line-height: 1;
+}
+
+/* .ProseMirror p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.ProseMirror p + p {
+  margin-top: 0.5em;
+} */

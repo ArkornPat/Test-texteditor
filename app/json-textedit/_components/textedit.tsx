@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import { EditorContent, useEditor } from "@tiptap/react";
-import { editorExtensions } from "./EditorExtension";
-import EditorMenu from "./editor-menu";
-import { postProcessHtml } from "../utils";
+import { editorExtensions } from "@/app/components/EditorExtension";
+import { postProcessHtmlJson } from "@/app/utils";
+import EditorMenu from "@/app/components/editor-menu";
 
 interface Section {
   menuId: string;
@@ -31,7 +31,7 @@ const ContentH2 = ({ section }: { section: Section }) => {
     },
     onUpdate: ({ editor }) => {
       const updatedContent = editor.getHTML();
-      const processedHtml = postProcessHtml(updatedContent);
+      const processedHtml = postProcessHtmlJson(updatedContent);
       section.content = processedHtml;
       setHtmlContent(processedHtml);
     },

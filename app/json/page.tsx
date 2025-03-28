@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import clsx from "clsx";
+import Link from "next/link";
 
 type JsonValue =
   | string
@@ -162,6 +163,11 @@ export default function PageJson() {
 
   return (
     <div className="p-4">
+      <div className="flex justify-center">
+        <Link href="/json-textedit" className="btn btn-primary">
+          JSON Text Editor
+        </Link>
+      </div>
       <h1 className="text-2xl mb-4">JSON Editor</h1>
 
       <div className="mb-4">

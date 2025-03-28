@@ -11,6 +11,20 @@ export function postProcessHtml(html: string): string {
         .replace(/<\/picture><\/li><li><strong>/gi, "</picture><br/></li><li><strong>");
     return processedHtml;
 }
+export function postProcessHtmlJson(html: string): string {
+    const processedHtml = html
+        .replace(/<li><p>(.*?)<\/p><\/li>/gi, "<li>$1</li>")
+        .replace(/<br>/gi, "<br/>")
+        .replace(/<li><p>(.*?)<\/p><(\/?)(ol|li|ul)>/gi, "<li>$1<$2$3>")
+        .replace(/<\/p><p>/gi, "<br/>")
+        .replace(/<p>(.*?)<\/p>/gi, "<p class=\"mb-4\">$1</p>")
+        .replace(/<\/picture><\/li><li><p>/gi, "</picture><br/></li><li>")
+        .replace(/<\/p><picture style="padding-top: 2rem;" class="site-img-wrapper">/gi, "<br/><picture style=\"padding-top: 2rem;\" class=\"site-img-wrapper\">")
+        .replace(/<br\/><\/li><li><p>/gi, "<br/></li><li>")
+        .replace(/<\/p><br\/><picture style="padding-top: 2rem;" class="site-img-wrapper">/gi, "<br/><picture style=\"padding-top: 2rem;\" class=\"site-img-wrapper\">")
+        .replace(/<\/picture><\/li><li><strong>/gi, "</picture><br/></li><li><strong>");
+    return processedHtml;
+}
 
 export const cleanHTML = (content: string): string => {
     if (!content) return '';
